@@ -139,14 +139,32 @@ PROJECTS = [
     ("kitchen-column", "kitchen", "tall", "Колонна под встроенную технику до потолка"),
     ("bath-niche", "bath", "", "Шкаф над инсталляцией с цветной нишей"),
     ("bedroom-vanity", "bedroom", "", "Туалетный столик и скамья из дуба"),
+    ("kitchen2-corner", "kitchen", "tall", "Угловая кухня до потолка: матовые фасады, рифлёные антресоли и витрина с подсветкой"),
+    ("study-desk", "kids", "big", "Комната школьника: стол вдоль окна, стеллажи из дуба и шкаф с фрезеровкой-арками"),
+    ("hall2-wardrobe", "hall", "tall", "Прихожая: распашной шкаф до потолка, ниша с крючками и сиденье с ящиками"),
+    ("kitchen3-straight", "kitchen", "tall", "Прямая кухня в два яруса до потолка с фасадами в стиле шейкер"),
+    ("bath2-cabinet", "bath", "tall", "Санузел: рифлёный шкаф над инсталляцией и подвесная тумба"),
+    ("wardrobe-arch", "bedroom", "tall", "Шкаф цвета шалфей с фрезеровкой-арками и антресолями"),
+    ("living2-tv", "living", "tall", "ТВ-тумба с декоративной фрезеровкой и витрина с подсветкой"),
+    ("closet-laundry", "wardrobe", "tall", "Гардеробная-постирочная: ниша под стиральную и сушильную машины, полки и ящики"),
+    ("kitchen2-oven", "kitchen", "tall", "Колонна под духовку и микроволновку, вытяжка спрятана в шкаф"),
+    ("study-angle", "kids", "tall", "Стеллажи по бокам окна и столешница во всю стену"),
+    ("closet-walnut", "wardrobe", "tall", "Гардеробная из ЛДСП цвета орех: открытые полки и выдвижные ящики"),
+    ("kitchen2-vitrine", "kitchen", "tall", "Витрина в алюминиевой раме с тонированным стеклом"),
+    ("study-side", "kids", "tall", "Шкаф и открытый стеллаж в детской"),
+    ("kitchen3-drawers", "kitchen", "tall", "Фасады шейкер и выдвижные ящики с доводчиками"),
+    ("bath2-vanity", "bath", "tall", "Подвесная тумба с рифлёными ящиками"),
+    ("detail-shelves", "wardrobe", "tall", "Внутреннее наполнение шкафа: полки под размеры вещей"),
+    ("study-drawers", "kids", "tall", "Тумба с ящиками под письменным столом"),
+    ("detail-socket", "kids", "tall", "Выдвижная розетка с USB, встроенная в столешницу"),
 ]
-FILTERS = [("all", "Все"), ("kitchen", "Кухни"), ("living", "Гостиные"), ("hall", "Прихожие"), ("kids", "Детские"), ("bedroom", "Спальни"), ("bath", "Санузлы")]
+FILTERS = [("all", "Все"), ("kitchen", "Кухни"), ("living", "Гостиные"), ("hall", "Прихожие"), ("kids", "Детские"), ("bedroom", "Спальни"), ("wardrobe", "Гардеробные"), ("bath", "Санузлы")]
 
-def gallery_html():
+def gallery_html(limit=None):
     f = "".join(f'<button type="button" data-f="{k}" aria-pressed="{"true" if k=="all" else "false"}">{t}</button>' for k, t in FILTERS)
     shots = "".join(
         f'''<button type="button" class="shot {size}" data-cat="{cat}" data-full="assets/media/{n}.jpg" data-cap="{cap}"><img src="assets/media/{n}{"" if size=="big" else "-s"}.jpg" alt="{cap} — Khan Mebel, Астана" loading="lazy" decoding="async"><span class="cap">{cap}</span></button>'''
-        for n, cat, size, cap in PROJECTS)
+        for n, cat, size, cap in (PROJECTS[:limit] if limit else PROJECTS))
     return f'<div class="filters" role="group" aria-label="Фильтр проектов">{f}</div><div class="gallery" id="gallery">{shots}</div>'
 
 SOUND_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15.5 8.5a5 5 0 0 1 0 7M18.5 5.5a9 9 0 0 1 0 13"/></svg>'
@@ -355,7 +373,7 @@ def sec_projects(mark="(03)", more=True):
     link = '<div class="center" style="margin-top:32px;text-align:center"><a class="btn btn-ink" href="proekty.html">Все проекты</a></div>' if more else ""
     return f'''<section id="projects"><div class="wrap">
 <div class="sec-title"><span class="mark">{mark}</span><h2>Наши проекты</h2><p class="lead">Реальные квартиры в Астане. Нажмите на фото, чтобы рассмотреть детали.</p></div>
-{gallery_html()}{link}
+{gallery_html(16 if more else None)}{link}
 </div></section>'''
 
 def sec_pillars():
