@@ -192,7 +192,7 @@ def photo_strip(path):
     return f'<div class="wrap"><div class="photo-strip">{imgs}</div></div>'
 
 CALC_HTML = open(os.path.join(ROOT, 'src', 'partials', 'calculator.html'), encoding='utf-8').read()
-FAN = ["kitchen-green", "hall-oak", "living-tv", "kids-room", "bedroom-wardrobe"]
+FAN = ["living-tv", "kitchen2-corner", "kitchen-green", "hall2-wardrobe", "study-desk"]  # на телефоне видны 2–4
 FAN_HTML = '<div class="fan" aria-hidden="true">' + "".join(f'<div class="card"><img src="assets/media/{n}-s.jpg" alt=""></div>' for n in FAN) + '</div>'
 
 STATS = [("5,0", "Рейтинг в 2ГИС по 38 оценкам"), ("10", "дней — сдали кухню вместо 15 по договору"),
