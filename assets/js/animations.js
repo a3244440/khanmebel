@@ -13,9 +13,9 @@
     gsap.to(cards, { '--s': 1.45, ease: 'none', scrollTrigger: { trigger: '.fan', start: 'top 70%', end: 'bottom top', scrub: true } });
   }
 
-  // Заголовки разделов выезжают снизу
-  gsap.utils.toArray('.sec-title h2, .calc-intro h2').forEach(function (h) {
-    gsap.from(h, { y: 70, duration: 1.1, ease: 'expo.out', scrollTrigger: { trigger: h, start: 'top 88%' } });
+  // Заголовки разделов выезжают снизу целым блоком, чтобы заголовок не наезжал на подзаголовок
+  gsap.utils.toArray('.sec-title, .calc-intro').forEach(function (h) {
+    gsap.from(h, { y: 40, duration: .9, ease: 'expo.out', scrollTrigger: { trigger: h, start: 'top 92%', once: true } });
   });
 
   mm.add('(min-width: 821px)', function () {
