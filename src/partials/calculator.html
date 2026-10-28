@@ -1,0 +1,104 @@
+<div class="qc" id="calc" aria-label="Калькулятор стоимости мебели">
+<div class="qc-head"><span class="qc-title">Калькулятор <em>за 30 секунд</em></span><span class="qc-sub" id="r-title">Кухня</span></div>
+<div class="qc-tabs" role="tablist" aria-label="Тип мебели">
+<button class="tab" role="tab" id="t-kitchen" aria-selected="true" data-tab="kitchen"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="5" rx="1"/><rect x="3" y="12" width="18" height="8" rx="1"/><path d="M9 12v8M15 12v8"/></svg>Кухня</button>
+<button class="tab" role="tab" id="t-wardrobe" aria-selected="false" data-tab="wardrobe"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="3" width="16" height="18" rx="1"/><path d="M12 3v18M10 11v2M14 11v2"/></svg>Шкаф</button>
+<button class="tab" role="tab" id="t-hall" aria-selected="false" data-tab="hall"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="8" height="18" rx="1"/><rect x="13" y="3" width="8" height="10" rx="4"/><rect x="13" y="16" width="8" height="5" rx="1"/></svg>Прихожая</button>
+<button class="tab" role="tab" id="t-tv" aria-selected="false" data-tab="tv"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="3" width="14" height="9" rx="1"/><rect x="2" y="15" width="20" height="6" rx="1"/></svg>ТВ-зона</button>
+</div>
+
+<form id="f-kitchen" class="qc-form" data-pane="kitchen">
+<fieldset class="row"><legend>Форма</legend><div class="seg seg-ico">
+<input type="radio" name="k_layout" id="kl1" value="straight" checked><label for="kl1"><svg viewBox="0 0 32 20" aria-hidden="true"><path d="M3 5h26"/></svg>Прямая</label>
+<input type="radio" name="k_layout" id="kl2" value="corner"><label for="kl2"><svg viewBox="0 0 32 20" aria-hidden="true"><path d="M5 17V4h22"/></svg>Угловая</label>
+<input type="radio" name="k_layout" id="kl3" value="u"><label for="kl3"><svg viewBox="0 0 32 20" aria-hidden="true"><path d="M5 17V4h22v13"/></svg>П-образная</label>
+<input type="radio" name="k_layout" id="kl4" value="island"><label for="kl4"><svg viewBox="0 0 32 20" aria-hidden="true"><path d="M3 4h26"/><rect x="10" y="12" width="12" height="4"/></svg>Остров</label>
+</div></fieldset>
+<div class="row"><label for="k_len">Длина по стенам</label>
+<div class="range-row"><input type="range" id="k_len" min="1.5" max="8" step="0.1" value="3.2"><output class="range-val" id="k_len_v" for="k_len">3,2 м</output></div></div>
+<fieldset class="row"><legend>Фасады</legend><div class="seg seg-sw">
+<input type="radio" name="k_fac" id="kf1" value="ldsp" checked><label for="kf1"><i style="background:linear-gradient(90deg,#8a5f3d,#a57754 40%,#7a5234)"></i>ЛДСП</label>
+<input type="radio" name="k_fac" id="kf2" value="mdf"><label for="kf2"><i style="background:#b8a895"></i>МДФ</label>
+<input type="radio" name="k_fac" id="kf3" value="acryl"><label for="kf3"><i style="background:linear-gradient(135deg,#fff,#d9d5cf 60%,#f4f1ec)"></i>Акрил</label>
+<input type="radio" name="k_fac" id="kf4" value="enamel"><label for="kf4"><i style="background:#2b2724"></i>Эмаль</label>
+</div></fieldset>
+<details class="more"><summary>Высота, столешница, фурнитура</summary><div class="more-in">
+<fieldset class="row"><legend>Верхние шкафы</legend><div class="seg">
+<input type="radio" name="k_h" id="kh1" value="720" checked><label for="kh1">720 мм</label>
+<input type="radio" name="k_h" id="kh2" value="920"><label for="kh2">920 мм</label>
+<input type="radio" name="k_h" id="kh3" value="ceil"><label for="kh3">До потолка</label>
+</div></fieldset>
+<fieldset class="row"><legend>Столешница</legend><div class="seg">
+<input type="radio" name="k_top" id="kt1" value="ldsp" checked><label for="kt1">ЛДСП</label>
+<input type="radio" name="k_top" id="kt2" value="compact"><label for="kt2">Компакт-плита</label>
+<input type="radio" name="k_top" id="kt3" value="stone"><label for="kt3">Искусств. камень</label>
+</div></fieldset>
+<fieldset class="row"><legend>Фурнитура</legend><div class="seg">
+<input type="radio" name="k_hw" id="kw1" value="std" checked><label for="kw1">Стандарт</label>
+<input type="radio" name="k_hw" id="kw2" value="prem"><label for="kw2">Blum / Hettich</label>
+</div></fieldset>
+<div class="checks"><label class="check"><input type="checkbox" id="k_apron"> Фартук</label><label class="check"><input type="checkbox" id="k_light"> Подсветка</label><label class="check"><input type="checkbox" id="k_tech"> Встройка техники</label></div>
+</div></details>
+</form>
+
+<form id="f-wardrobe" class="qc-form" data-pane="wardrobe" hidden>
+<fieldset class="row"><legend>Тип</legend><div class="seg">
+<input type="radio" name="w_type" id="wt1" value="coupe" checked><label for="wt1">Шкаф-купе</label>
+<input type="radio" name="w_type" id="wt2" value="swing"><label for="wt2">Распашной</label>
+<input type="radio" name="w_type" id="wt3" value="walkin"><label for="wt3">Гардеробная</label>
+</div></fieldset>
+<div class="row two">
+<div><label for="w_w">Ширина</label><div class="range-row"><input type="range" id="w_w" min="0.8" max="5" step="0.1" value="2"><output class="range-val" id="w_w_v" for="w_w">2,0 м</output></div></div>
+<div><label for="w_h">Высота</label><div class="range-row"><input type="range" id="w_h" min="2" max="3" step="0.05" value="2.6"><output class="range-val" id="w_h_v" for="w_h">2,60 м</output></div></div>
+</div>
+<fieldset class="row"><legend>Фасады</legend><div class="seg seg-sw">
+<input type="radio" name="w_fac" id="wf1" value="ldsp" checked><label for="wf1"><i style="background:linear-gradient(90deg,#8a5f3d,#a57754 40%,#7a5234)"></i>ЛДСП</label>
+<input type="radio" name="w_fac" id="wf2" value="mirror"><label for="wf2"><i style="background:linear-gradient(115deg,#5d5f60,#c9cccd 45%,#6d6f70)"></i>Зеркало</label>
+<input type="radio" name="w_fac" id="wf3" value="mdf"><label for="wf3"><i style="background:#2b2724"></i>МДФ эмаль</label>
+</div></fieldset>
+<details class="more"><summary>Наполнение и подсветка</summary><div class="more-in">
+<fieldset class="row"><legend>Наполнение</legend><div class="seg">
+<input type="radio" name="w_fill" id="wn1" value="base" checked><label for="wn1">Полки и штанги</label>
+<input type="radio" name="w_fill" id="wn2" value="plus"><label for="wn2">+ ящики</label>
+<input type="radio" name="w_fill" id="wn3" value="max"><label for="wn3">Максимум</label>
+</div></fieldset>
+<div class="checks"><label class="check"><input type="checkbox" id="w_light"> LED-подсветка внутри</label></div>
+</div></details>
+</form>
+
+<form id="f-hall" class="qc-form" data-pane="hall" hidden>
+<fieldset class="row"><legend>Вариант</legend><div class="seg">
+<input type="radio" name="h_type" id="ht1" value="open" checked><label for="ht1">Открытая</label>
+<input type="radio" name="h_type" id="ht2" value="closed"><label for="ht2">Со шкафом</label>
+</div></fieldset>
+<div class="row"><label for="h_w">Ширина</label>
+<div class="range-row"><input type="range" id="h_w" min="0.8" max="3.5" step="0.1" value="1.5"><output class="range-val" id="h_w_v" for="h_w">1,5 м</output></div></div>
+<div class="checks"><label class="check"><input type="checkbox" id="h_mirror"> Зеркало</label><label class="check"><input type="checkbox" id="h_seat"> Сиденье</label></div>
+</form>
+
+<form id="f-tv" class="qc-form" data-pane="tv" hidden>
+<div class="row"><label for="tv_w">Ширина зоны</label>
+<div class="range-row"><input type="range" id="tv_w" min="1" max="5" step="0.1" value="2.4"><output class="range-val" id="tv_w_v" for="tv_w">2,4 м</output></div></div>
+<fieldset class="row"><legend>Фасады</legend><div class="seg seg-sw">
+<input type="radio" name="tv_fac" id="tf1" value="ldsp" checked><label for="tf1"><i style="background:linear-gradient(90deg,#8a5f3d,#a57754 40%,#7a5234)"></i>ЛДСП</label>
+<input type="radio" name="tv_fac" id="tf2" value="mdf"><label for="tf2"><i style="background:#b8a895"></i>МДФ</label>
+<input type="radio" name="tv_fac" id="tf3" value="enamel"><label for="tf3"><i style="background:#2b2724"></i>Эмаль</label>
+</div></fieldset>
+<div class="checks"><label class="check"><input type="checkbox" id="tv_wall"> Панель и полки</label><label class="check"><input type="checkbox" id="tv_light"> Подсветка</label></div>
+</form>
+
+<div class="qc-result" aria-live="polite">
+<div class="qc-sum"><span class="lbl">Ориентировочно</span><b class="total" id="r-total">—</b><span class="range" id="r-range"></span></div>
+<a class="btn btn-gold" id="send" href="https://wa.me/{{WA_NUM}}" target="_blank" rel="noopener">Точный расчёт в WhatsApp</a>
+</div>
+<div class="qc-tools">
+<button type="button" class="link-btn" id="add">+ Добавить в смету</button>
+<button type="button" class="link-btn" id="toggle-lines" aria-expanded="false" aria-controls="r-lines">Из чего цена</button>
+</div>
+<div class="lines" id="r-lines" hidden></div>
+<div class="estimate" id="est" hidden>
+<div id="est-items"></div>
+<div class="sum"><span>Смета под ключ</span><span id="est-sum"></span></div>
+</div>
+<p class="note">Цены ориентировочные. Точную стоимость фиксируем в договоре после замера.</p>
+</div>
