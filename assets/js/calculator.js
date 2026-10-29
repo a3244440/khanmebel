@@ -1,7 +1,7 @@
 (function(){
 // Прайс (₸). Заменить на реальные цены Khan Mebel.
 var P={
-  kitchen:{fac:{ldsp:135000,mdf:175000,paint:240000},
+  kitchen:{fac:{ldsp:180000,mdf:250000,paint:300000},
     facName:{ldsp:"ЛДСП",mdf:"МДФ в плёнке",paint:"МДФ в краске"},
     h:{"720":1,"920":1.12,ceil:1.3},hName:{"720":"верх 720","920":"верх 920",ceil:"до потолка"},
     top:{ldsp:28000,compact:85000,stone:170000},topName:{ldsp:"ЛДСП",compact:"компакт-плита",stone:"искусств. камень"},
