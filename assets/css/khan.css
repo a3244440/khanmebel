@@ -123,7 +123,7 @@ section{padding-block:clamp(80px,11vw,160px)}
 .qc .row{display:grid;gap:10px;border:0;margin:0;padding:0;min-width:0}
 .qc .row.two{grid-template-columns:1fr 1fr;gap:18px}
 .qc .row.two>div{display:grid;gap:10px;min-width:0}
-.qc legend,.qc .row>label[for],.qc .row>div>label[for]{font-size:.9rem;color:var(--muted);padding:0}
+.qc legend,.qc .row>label[for],.qc .row.two>div>label[for]{font-size:.9rem;color:var(--muted);padding:0}
 .qc .seg{display:flex;flex-wrap:wrap;gap:6px}
 .qc .seg input{position:absolute;opacity:0;pointer-events:none}
 .qc .seg label{display:inline-flex;align-items:center;gap:10px;min-height:44px;padding:8px 16px;border-radius:999px;background:var(--bg);font-size:.95rem;cursor:pointer;transition:background .2s,color .2s}
@@ -382,3 +382,12 @@ td:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:5
 .qc .spec-in summary{color:var(--ink)}
 .qc .spec-list{margin:10px 0 0;padding:14px 16px;list-style:none;display:grid;gap:8px;border-radius:14px;background:var(--bg);font-size:.92rem;color:var(--ink-2)}
 .qc .spec-list li::before{content:"— ";color:var(--gold-ink)}
+
+/* ровные «таблетки» выбора в калькуляторе */
+.qc .seg label{padding:10px 18px;white-space:nowrap;line-height:1.2}
+.qc .seg-sw label{padding:6px 18px 6px 6px}
+.qc .seg-ico label{white-space:normal;padding:12px 6px}
+@media (max-width:480px){.qc .seg label{padding:9px 14px;font-size:.9rem}.qc .seg-sw label{padding:5px 14px 5px 5px}}
+.qc .seg-ico{grid-template-columns:repeat(4,minmax(0,1fr))}
+.qc .seg-ico label{min-width:0;overflow-wrap:anywhere}
+@media (max-width:480px){.qc .seg-ico{gap:5px}.qc .seg-ico label{font-size:.72rem;padding:10px 2px;gap:4px}.qc .seg-ico svg{width:26px;height:16px}}
