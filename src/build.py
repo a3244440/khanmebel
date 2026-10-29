@@ -7,7 +7,7 @@
 Тексты, цены, отзывы и проекты правятся в этом файле, стили — в assets/css/khan.css,
 калькулятор — в src/partials/calculator.html и assets/js/calculator.js.
 """
-import json, os, urllib.parse, datetime
+import json, os, re, urllib.parse, datetime
 TODAY = datetime.date.today().isoformat()
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -340,6 +340,14 @@ def footer():
 </div></footer>
 <a class="wa-float" href="{WA}" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">{CHAT_SVG}<span>WhatsApp</span></a>'''
 
+# Чистые адреса без .html (на Vercel включено cleanUrls в vercel.json)
+SLUGS = ["kalkulyator", "proekty", "kuhni-na-zakaz-astana", "mebel-na-zakaz-astana", "mebel-pod-klyuch-astana",
+         "ceny", "otzyvy", "kontakty"]
+def clean(s):
+    s = re.sub(r'(?<![\w/.-])index\.html', '/', s)
+    s = s.replace(DOMAIN + '//', DOMAIN + '/')
+    return re.sub(r'\b(' + '|'.join(SLUGS) + r')\.html\b', r'\1', s)
+
 def doc(path, title, desc, body, schemas=(), calc=False, anim=True):
     scripts = (GSAP if anim else "") + ('<script src="assets/js/calculator.js" defer></script>' if calc else "") + \
         '<script src="assets/js/site.js" defer></script>' + ('<script src="assets/js/animations.js" defer></script>' if anim else "")
@@ -366,7 +374,7 @@ def doc(path, title, desc, body, schemas=(), calc=False, anim=True):
 </html>
 '''
     with open(os.path.join(OUT, path or "index.html"), "w", encoding="utf-8") as f:
-        f.write(html)
+        f.write(clean(html))
     PAGES.append(path)
 
 PAGES = []
@@ -682,12 +690,12 @@ llms = llms.replace("## Страницы\n", "## Страницы\n" + "".join(
     ("ceny.html", "Цены"), ("otzyvy.html", "Отзывы"), ("kontakty.html", "Контакты")]))
 llms = llms.replace("- [Главная и калькулятор]", "- [Главная]")
 with open(os.path.join(OUT, "llms.txt"), "w", encoding="utf-8") as f:
-    f.write(llms)
+    f.write(clean(llms))
 with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8") as f:
     f.write(f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n")
 PRIORITY = {"": "1.0", "kuhni-na-zakaz-astana.html": "0.9", "mebel-na-zakaz-astana.html": "0.9", "mebel-pod-klyuch-astana.html": "0.9", "kalkulyator.html": "0.8"}
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
-    f"  <url><loc>{DOMAIN}/{p}</loc><lastmod>{TODAY}</lastmod><priority>{PRIORITY.get(p, '0.7')}</priority></url>\n" for p in PAGES) + "</urlset>\n"
+    f"  <url><loc>{DOMAIN}/{clean(p)}</loc><lastmod>{TODAY}</lastmod><priority>{PRIORITY.get(p, '0.7')}</priority></url>\n" for p in PAGES) + "</urlset>\n"
 with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8") as f:
     f.write(sm)
 print("Готово:", ", ".join(p or "index.html" for p in PAGES))
