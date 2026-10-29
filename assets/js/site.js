@@ -114,4 +114,13 @@
       var p = v.play(); if (p) p.catch(function () {}); b.hidden = true;
     });
   });
+
+  // Яндекс Метрика: цели «whatsapp» (клик по любой ссылке на WhatsApp) и «phone» (клик по телефону)
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href]');
+    if (!a || typeof window.ym !== 'function') return;
+    var h = a.getAttribute('href');
+    if (/wa\.me|whatsapp/i.test(h)) window.ym(113868698, 'reachGoal', 'whatsapp');
+    else if (/^tel:/i.test(h)) window.ym(113868698, 'reachGoal', 'phone');
+  });
 })();

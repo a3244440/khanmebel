@@ -340,6 +340,20 @@ def footer():
 </div></footer>
 <a class="wa-float" href="{WA}" target="_blank" rel="noopener" aria-label="Написать в WhatsApp">{CHAT_SVG}<span>WhatsApp</span></a>'''
 
+YM_HEAD = """<!-- Yandex.Metrika counter -->
+<script type="text/javascript">
+    (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for (var j = 0; j < document.scripts.length; j++) {if (document.scripts[j].src === r) { return; }}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+    })(window, document,'script','https://mc.yandex.ru/metrika/tag.js?id=113868698', 'ym');
+
+    ym(113868698, 'init', {ssr:true, webvisor:true, clickmap:true, ecommerce:"dataLayer", referrer: document.referrer, url: location.href, accurateTrackBounce:true, trackLinks:true});
+</script>
+<!-- /Yandex.Metrika counter -->"""
+YM_NOSCRIPT = '<noscript><div><img src="https://mc.yandex.ru/watch/113868698" style="position:absolute; left:-9999px;" alt="" /></div></noscript>'
+
 # Чистые адреса без .html (на Vercel включено cleanUrls в vercel.json)
 SLUGS = ["kalkulyator", "proekty", "kuhni-na-zakaz-astana", "mebel-na-zakaz-astana", "mebel-pod-klyuch-astana",
          "ceny", "otzyvy", "kontakty"]
@@ -361,8 +375,10 @@ def doc(path, title, desc, body, schemas=(), calc=False, anim=True):
 <link rel="icon" href="assets/img/logo.jpg">
 <meta name="theme-color" content="#f1f1f1">
 {ld(org_schema(), *schemas)}
+{YM_HEAD}
 </head>
 <body>
+{YM_NOSCRIPT}
 <div id="top"></div>
 {header(path)}
 <main>
