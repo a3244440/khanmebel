@@ -1,18 +1,18 @@
 (function(){
 // Прайс (₸). Заменить на реальные цены Khan Mebel.
 var P={
-  kitchen:{fac:{ldsp:135000,mdf:175000,acryl:225000,enamel:255000},
-    facName:{ldsp:"ЛДСП",mdf:"МДФ плёнка",acryl:"акрил",enamel:"эмаль"},
+  kitchen:{fac:{ldsp:135000,mdf:175000},
+    facName:{ldsp:"ЛДСП",mdf:"МДФ плёнка"},
     h:{"720":1,"920":1.12,ceil:1.3},hName:{"720":"верх 720","920":"верх 920",ceil:"до потолка"},
     top:{ldsp:28000,compact:85000,stone:170000},topName:{ldsp:"ЛДСП",compact:"компакт-плита",stone:"искусств. камень"},
     hwPrem:38000,layout:{straight:0,corner:45000,u:90000,island:180000},
     layoutName:{straight:"прямая",corner:"угловая",u:"П-образная",island:"с островом"},
     apron:18000,light:12000,tech:25000},
   wardrobe:{type:{coupe:62000,swing:55000,walkin:48000},typeName:{coupe:"Шкаф-купе",swing:"Распашной шкаф",walkin:"Гардеробная"},
-    fac:{ldsp:0,mirror:14000,mdf:38000},facName:{ldsp:"ЛДСП",mirror:"зеркало",mdf:"МДФ эмаль"},
+    fac:{ldsp:0,mirror:14000,mdf:38000},facName:{ldsp:"ЛДСП",mirror:"зеркало",mdf:"МДФ"},
     fill:{base:0,plus:30000,max:60000},light:15000},
   hall:{type:{open:85000,closed:110000},mirror:25000,seat:30000},
-  tv:{fac:{ldsp:70000,mdf:95000,enamel:130000},facName:{ldsp:"ЛДСП",mdf:"МДФ плёнка",enamel:"эмаль"},wall:35000,light:12000},
+  tv:{fac:{ldsp:70000,mdf:95000},facName:{ldsp:"ЛДСП",mdf:"МДФ плёнка"},wall:35000,light:12000},
   assembly:0.07
 };
 var WA="77001116291", tab="kitchen", est=[];
