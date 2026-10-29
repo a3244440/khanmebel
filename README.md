@@ -60,7 +60,7 @@ python3 src/build.py
 ## Публикация на GitHub Pages
 
 1. Settings → Pages → Source: **Deploy from a branch**, ветка `main`, папка `/ (root)`.
-2. Через минуту сайт будет на `https://a3244440.github.io/khanmebel/`.
+2. Через минуту сайт будет на `https://khanmebel.vercel.app/`.
 
 ### Свой домен
 

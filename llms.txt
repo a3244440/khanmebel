@@ -22,12 +22,12 @@
 - Мебель под ключ: 1-комнатная квартира от ~860 000 ₸
 
 ## Страницы
-- [Калькулятор стоимости](https://a3244440.github.io/khanmebel/kalkulyator.html)
-- [Проекты: фото и видео](https://a3244440.github.io/khanmebel/proekty.html)
-- [Цены](https://a3244440.github.io/khanmebel/ceny.html)
-- [Отзывы](https://a3244440.github.io/khanmebel/otzyvy.html)
-- [Контакты](https://a3244440.github.io/khanmebel/kontakty.html)
-- [Главная](https://a3244440.github.io/khanmebel/)
-- [Кухни на заказ в Астане](https://a3244440.github.io/khanmebel/kuhni-na-zakaz-astana.html)
-- [Мебель на заказ в Астане](https://a3244440.github.io/khanmebel/mebel-na-zakaz-astana.html)
-- [Мебель под ключ в Астане](https://a3244440.github.io/khanmebel/mebel-pod-klyuch-astana.html)
+- [Калькулятор стоимости](https://khanmebel.vercel.app/kalkulyator.html)
+- [Проекты: фото и видео](https://khanmebel.vercel.app/proekty.html)
+- [Цены](https://khanmebel.vercel.app/ceny.html)
+- [Отзывы](https://khanmebel.vercel.app/otzyvy.html)
+- [Контакты](https://khanmebel.vercel.app/kontakty.html)
+- [Главная](https://khanmebel.vercel.app/)
+- [Кухни на заказ в Астане](https://khanmebel.vercel.app/kuhni-na-zakaz-astana.html)
+- [Мебель на заказ в Астане](https://khanmebel.vercel.app/mebel-na-zakaz-astana.html)
+- [Мебель под ключ в Астане](https://khanmebel.vercel.app/mebel-pod-klyuch-astana.html)

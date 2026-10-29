@@ -12,7 +12,7 @@ import json, os, urllib.parse
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = ROOT
 # Адрес сайта для canonical, sitemap и разметки. После подключения своего домена поменяйте здесь.
-DOMAIN = "https://a3244440.github.io/khanmebel"
+DOMAIN = "https://khanmebel.vercel.app"
 
 WA_NUM = "77001116291"
 PHONE_H = "+7 700 111 62 91"
