@@ -7,7 +7,8 @@
 Тексты, цены, отзывы и проекты правятся в этом файле, стили — в assets/css/khan.css,
 калькулятор — в src/partials/calculator.html и assets/js/calculator.js.
 """
-import json, os, urllib.parse
+import json, os, urllib.parse, datetime
+TODAY = datetime.date.today().isoformat()
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = ROOT
@@ -686,7 +687,7 @@ with open(os.path.join(OUT, "robots.txt"), "w", encoding="utf-8") as f:
     f.write(f"User-agent: *\nAllow: /\n\nSitemap: {DOMAIN}/sitemap.xml\n")
 PRIORITY = {"": "1.0", "kuhni-na-zakaz-astana.html": "0.9", "mebel-na-zakaz-astana.html": "0.9", "mebel-pod-klyuch-astana.html": "0.9", "kalkulyator.html": "0.8"}
 sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n' + "".join(
-    f"  <url><loc>{DOMAIN}/{p}</loc><lastmod>2026-10-28</lastmod><priority>{PRIORITY.get(p, '0.7')}</priority></url>\n" for p in PAGES) + "</urlset>\n"
+    f"  <url><loc>{DOMAIN}/{p}</loc><lastmod>{TODAY}</lastmod><priority>{PRIORITY.get(p, '0.7')}</priority></url>\n" for p in PAGES) + "</urlset>\n"
 with open(os.path.join(OUT, "sitemap.xml"), "w", encoding="utf-8") as f:
     f.write(sm)
 print("Готово:", ", ".join(p or "index.html" for p in PAGES))
