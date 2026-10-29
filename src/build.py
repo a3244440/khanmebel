@@ -374,7 +374,10 @@ def doc(path, title, desc, body, schemas=(), calc=False, anim=True):
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>{title}</title>
 {meta(title, desc, path)}
-<link rel="icon" href="assets/img/logo.jpg">
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="/assets/img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/img/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
 <meta name="theme-color" content="#f1f1f1">
 {ld(org_schema(), *schemas)}
 {YM_HEAD}
