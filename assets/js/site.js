@@ -1,4 +1,4 @@
-/* Khan Mebel — общие скрипты всех страниц: шапка, ползунки, отзывы, заявка, галерея, видео. */
+/* Khan Mebel: общие скрипты всех страниц: шапка, ползунки, отзывы, заявка, галерея, видео. */
 (function () {
   var WA = '77001116291';
   function $(id) { return document.getElementById(id); }
@@ -41,7 +41,7 @@
     var upd = function () {
       go.href = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(
         'Здравствуйте! Меня зовут ' + (nm.value || '…') + '. Интересует: ' + wh.value +
-        '. Телефон: ' + (ph.value || '—') + '. Хочу записаться на замер.');
+        '. Телефон: ' + (ph.value || 'не указан') + '. Хочу записаться на замер.');
     };
     [nm, ph, wh].forEach(function (el) { el.addEventListener('input', upd); });
     form.addEventListener('submit', function (e) { e.preventDefault(); });

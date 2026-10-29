@@ -1,4 +1,4 @@
-/* Khan Mebel — анимации по прокрутке (GSAP + ScrollTrigger). Без библиотеки страница работает как обычно. */
+/* Khan Mebel: анимации по прокрутке (GSAP + ScrollTrigger). Без библиотеки страница работает как обычно. */
 (function () {
   if (!window.gsap || !window.ScrollTrigger) return;
   if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;

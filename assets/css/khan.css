@@ -1,5 +1,5 @@
-/* Khan Mebel v6 — по мотивам mt-webdesign: светло-серая база и чёрные сцены,
-   огромный гротеск, маркеры (01)…(06), анимации по скроллу. Акцент — золото логотипа. */
+/* Khan Mebel v6 по мотивам mt-webdesign: светло-серая база и чёрные сцены,
+   огромный гротеск, маркеры (01)…(06), анимации по скроллу. Акцент золото логотипа. */
 :root{
   --bg:#f1f1f1;
   --paper:#ffffff;
@@ -279,7 +279,7 @@ section{padding-block:clamp(80px,11vw,160px)}
 .plan .price{font-size:clamp(2.4rem,1.6rem + 2vw,3.6rem);font-weight:500;letter-spacing:-.05em;line-height:1}
 .plan .price small{display:block;font-size:1rem;letter-spacing:0;color:var(--muted);font-weight:400;margin-top:10px}
 .plan ul{margin:0;padding:0;list-style:none;display:grid;gap:10px;color:var(--ink-2)}
-.plan li::before{content:"— ";color:var(--gold-ink)}
+.plan li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold-ink);margin:0 10px 0 0;vertical-align:middle;position:relative;top:-2px}
 .plan .btn{margin-top:8px}
 .plan.featured{background:var(--black);color:#fff}
 .plan.featured ul{color:#c9c9c9}
@@ -381,7 +381,7 @@ td:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:5
 .plan .muted{color:var(--muted);margin-top:-8px}
 .qc .spec-in summary{color:var(--ink)}
 .qc .spec-list{margin:10px 0 0;padding:14px 16px;list-style:none;display:grid;gap:8px;border-radius:14px;background:var(--bg);font-size:.92rem;color:var(--ink-2)}
-.qc .spec-list li::before{content:"— ";color:var(--gold-ink)}
+.qc .spec-list li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold-ink);margin:0 10px 0 0;vertical-align:middle;position:relative;top:-2px}
 
 /* ровные «таблетки» выбора в калькуляторе */
 .qc .seg label{padding:10px 18px;white-space:nowrap;line-height:1.2}
@@ -402,7 +402,7 @@ td:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:5
 .mat-body h3{font-size:clamp(2.2rem,1.6rem + 1.6vw,3.2rem);letter-spacing:-.045em;line-height:1}
 .mat-body p{color:var(--ink-2)}
 .mat-body ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:8px}
-.mat-body li::before{content:"— ";color:var(--gold-ink)}
+.mat-body li::before{content:"";display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gold-ink);margin:0 10px 0 0;vertical-align:middle;position:relative;top:-2px}
 @media (max-width:760px){.mats{grid-template-columns:1fr}}
 /* Фасады в калькуляторе: фото материала */
 .qc .seg-mat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}

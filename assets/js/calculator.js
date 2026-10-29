@@ -8,7 +8,7 @@ var P={
     hwPrem:38000,layout:{straight:0,corner:45000,u:90000,island:180000},
     layoutName:{straight:"прямая",corner:"угловая",u:"П-образная",island:"с островом"},
     apron:18000,light:12000,tech:25000},
-  // Шкаф: ширина × высота × ставка за м² по фасадам; гардеробная — своя ставка за м²
+  // Шкаф: ширина × высота × ставка за м² по фасадам; гардеробная: своя ставка за м²
   wardrobe:{rate:{ldsp:60000,mdf:80000,paint:100000},walkin:60000,typeName:{swing:"Шкаф",walkin:"Гардеробная"},
     facName:{ldsp:"ЛДСП",mdf:"МДФ в плёнке",paint:"МДФ в краске"},light:15000},
   hall:{type:{open:85000,closed:110000},mirror:25000,seat:30000},
@@ -55,7 +55,7 @@ function calc(){
 }
 function waLink(cur){
   var items=est.length?est:[cur],s=items.reduce(function(a,x){return a+x.total},0);
-  var txt="Здравствуйте! Рассчитал(а) мебель на сайте Khan Mebel:\n"+items.map(function(x,i){return (i+1)+". "+x.name+" — ~"+fmt(x.total)}).join("\n")+
+  var txt="Здравствуйте! Рассчитал(а) мебель на сайте Khan Mebel:\n"+items.map(function(x,i){return (i+1)+". "+x.name+": ~"+fmt(x.total)}).join("\n")+
     "\nИтого ориентировочно: "+fmt(s)+"\nХочу записаться на замер.";
   return "https://wa.me/"+WA+"?text="+encodeURIComponent(txt);
 }
@@ -67,7 +67,7 @@ function hero(){var f=tab==="kitchen"?rad("k_fac"):tab==="wardrobe"?rad("w_fac")
 function render(){
   var r=calc();
   tween(r.total);
-  $("r-range").textContent="Диапазон: "+fmt(r.total*0.9)+" – "+fmt(r.total*1.12);
+  $("r-range").textContent="Диапазон: от "+fmt(r.total*0.9)+" до "+fmt(r.total*1.12);
   $("r-lines").innerHTML=r.lines.map(function(x){return "<div><span>"+x[0]+"</span><span>"+fmt(x[1])+"</span></div>"}).join("");
   $("est").hidden=!est.length;
   $("est-items").innerHTML=est.map(function(x,i){return '<div class="item"><span>'+x.name+'</span><span style="display:flex;gap:4px;align-items:center;white-space:nowrap">'+fmt(x.total)+'<button type="button" data-del="'+i+'" aria-label="Убрать из сметы">×</button></span></div>'}).join("");
