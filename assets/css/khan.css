@@ -376,3 +376,9 @@ td:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:5
 .calc-steps li{display:grid;grid-template-columns:auto 1fr;gap:16px;align-items:baseline;font-size:1.15rem;color:var(--ink-2);counter-increment:c}
 .calc-steps li::before{content:counter(c);font-size:2.6rem;font-weight:500;letter-spacing:-.05em;color:var(--ink);line-height:1}
 .calc-steps b{color:var(--ink);font-weight:500}
+.plans.two{grid-template-columns:1fr 1fr}
+@media (max-width:900px){.plans.two{grid-template-columns:1fr}}
+.plan .muted{color:var(--muted);margin-top:-8px}
+.qc .spec-in summary{color:var(--ink)}
+.qc .spec-list{margin:10px 0 0;padding:14px 16px;list-style:none;display:grid;gap:8px;border-radius:14px;background:var(--bg);font-size:.92rem;color:var(--ink-2)}
+.qc .spec-list li::before{content:"— ";color:var(--gold-ink)}

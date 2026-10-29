@@ -21,23 +21,20 @@
 <input type="radio" name="k_fac" id="kf2" value="mdf"><label for="kf2"><i style="background:#b8a895"></i>МДФ в плёнке</label>
 <input type="radio" name="k_fac" id="kf3" value="paint"><label for="kf3"><i style="background:#2b2724"></i>МДФ в краске</label>
 </div></fieldset>
-<details class="more"><summary>Высота, столешница, фурнитура</summary><div class="more-in">
+<details class="more"><summary>Высота и столешница</summary><div class="more-in">
 <fieldset class="row"><legend>Верхние шкафы</legend><div class="seg">
 <input type="radio" name="k_h" id="kh1" value="720" checked><label for="kh1">720 мм</label>
 <input type="radio" name="k_h" id="kh2" value="920"><label for="kh2">920 мм</label>
 <input type="radio" name="k_h" id="kh3" value="ceil"><label for="kh3">До потолка</label>
 </div></fieldset>
 <fieldset class="row"><legend>Столешница</legend><div class="seg">
-<input type="radio" name="k_top" id="kt1" value="ldsp" checked><label for="kt1">ЛДСП</label>
+<input type="radio" name="k_top" id="kt1" value="ldsp" checked><label for="kt1">ЛДСП Скиф / Кедр</label>
 <input type="radio" name="k_top" id="kt2" value="compact"><label for="kt2">Компакт-плита</label>
 <input type="radio" name="k_top" id="kt3" value="stone"><label for="kt3">Искусств. камень</label>
 </div></fieldset>
-<fieldset class="row"><legend>Фурнитура</legend><div class="seg">
-<input type="radio" name="k_hw" id="kw1" value="std" checked><label for="kw1">Стандарт</label>
-<input type="radio" name="k_hw" id="kw2" value="prem"><label for="kw2">Blum / Hettich</label>
-</div></fieldset>
-<div class="checks"><label class="check"><input type="checkbox" id="k_apron"> Фартук</label><label class="check"><input type="checkbox" id="k_light"> Подсветка</label><label class="check"><input type="checkbox" id="k_tech"> Встройка техники</label></div>
+<div class="checks"><label class="check"><input type="checkbox" id="k_apron"> Фартук</label><label class="check"><input type="checkbox" id="k_tech"> Встройка техники</label></div>
 </div></details>
+<details class="more spec-in"><summary>Что входит в кухню</summary><ul class="spec-list"><li>Корпус — ЛДСП Томск или Ламарти</li><li>Фасады — МДФ в плёнке или в краске</li><li>Фурнитура GTV (Польша), все механизмы с доводчиками</li><li>Ящики скрытого монтажа — выдерживают 25–30 кг</li><li>Гигиенический поддон</li><li>Термопланки</li><li>Подсветка</li><li>Столешница ЛДСП Скиф или Кедр</li></ul></details>
 </form>
 
 <form id="f-wardrobe" class="qc-form" data-pane="wardrobe" hidden>
@@ -49,20 +46,14 @@
 <div><label for="w_w">Ширина</label><div class="range-row"><input type="range" id="w_w" min="0.8" max="5" step="0.1" value="2"><output class="range-val" id="w_w_v" for="w_w">2,0 м</output></div></div>
 <div><label for="w_h">Высота</label><div class="range-row"><input type="range" id="w_h" min="2" max="3" step="0.05" value="2.6"><output class="range-val" id="w_h_v" for="w_h">2,60 м</output></div></div>
 </div>
-<fieldset class="row"><legend>Фасады</legend><div class="seg seg-sw">
+<fieldset class="row" id="w_fac_row"><legend>Фасады</legend><div class="seg seg-sw">
 <input type="radio" name="w_fac" id="wf1" value="ldsp" checked><label for="wf1"><i style="background:linear-gradient(90deg,#8a5f3d,#a57754 40%,#7a5234)"></i>ЛДСП</label>
-<input type="radio" name="w_fac" id="wf2" value="mirror"><label for="wf2"><i style="background:linear-gradient(115deg,#5d5f60,#c9cccd 45%,#6d6f70)"></i>Зеркало</label>
 <input type="radio" name="w_fac" id="wf3" value="mdf"><label for="wf3"><i style="background:#b8a895"></i>МДФ в плёнке</label>
 <input type="radio" name="w_fac" id="wf4" value="paint"><label for="wf4"><i style="background:#2b2724"></i>МДФ в краске</label>
 </div></fieldset>
-<details class="more"><summary>Наполнение и подсветка</summary><div class="more-in">
-<fieldset class="row"><legend>Наполнение</legend><div class="seg">
-<input type="radio" name="w_fill" id="wn1" value="base" checked><label for="wn1">Полки и штанги</label>
-<input type="radio" name="w_fill" id="wn2" value="plus"><label for="wn2">+ ящики</label>
-<input type="radio" name="w_fill" id="wn3" value="max"><label for="wn3">Максимум</label>
-</div></fieldset>
+<p class="note" style="margin:0">Цена = ширина × высота × ставка за м². Ящики (до 4 шт.), турникеты и наполнение по желанию уже входят.</p>
 <div class="checks"><label class="check"><input type="checkbox" id="w_light"> LED-подсветка внутри</label></div>
-</div></details>
+<details class="more spec-in"><summary>Что входит в шкаф</summary><ul class="spec-list"><li>Корпус — ЛДСП Томск или Ламарти</li><li>Фасады и видимые части — МДФ</li><li>Фурнитура GTV (Польша)</li><li>Турникеты</li><li>Ящики — до 4 шт.</li><li>Наполнение — по вашему желанию</li></ul></details>
 </form>
 
 <form id="f-hall" class="qc-form" data-pane="hall" hidden>

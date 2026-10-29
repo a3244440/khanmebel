@@ -4,13 +4,13 @@ var P={
   kitchen:{fac:{ldsp:180000,mdf:250000,paint:300000},
     facName:{ldsp:"ЛДСП",mdf:"МДФ в плёнке",paint:"МДФ в краске"},
     h:{"720":1,"920":1.12,ceil:1.3},hName:{"720":"верх 720","920":"верх 920",ceil:"до потолка"},
-    top:{ldsp:28000,compact:85000,stone:170000},topName:{ldsp:"ЛДСП",compact:"компакт-плита",stone:"искусств. камень"},
+    top:{ldsp:28000,compact:85000,stone:170000},topName:{ldsp:"ЛДСП Скиф / Кедр",compact:"компакт-плита",stone:"искусств. камень"},
     hwPrem:38000,layout:{straight:0,corner:45000,u:90000,island:180000},
     layoutName:{straight:"прямая",corner:"угловая",u:"П-образная",island:"с островом"},
     apron:18000,light:12000,tech:25000},
-  wardrobe:{type:{swing:55000,walkin:48000},typeName:{swing:"Распашной шкаф",walkin:"Гардеробная"},
-    fac:{ldsp:0,mirror:14000,mdf:22000,paint:38000},facName:{ldsp:"ЛДСП",mirror:"зеркало",mdf:"МДФ в плёнке",paint:"МДФ в краске"},
-    fill:{base:0,plus:30000,max:60000},light:15000},
+  // Шкаф: ширина × высота × ставка за м² по фасадам; гардеробная — своя ставка за м²
+  wardrobe:{rate:{ldsp:60000,mdf:80000,paint:100000},walkin:60000,typeName:{swing:"Шкаф",walkin:"Гардеробная"},
+    facName:{ldsp:"ЛДСП",mdf:"МДФ в плёнке",paint:"МДФ в краске"},light:15000},
   hall:{type:{open:85000,closed:110000},mirror:25000,seat:30000},
   tv:{fac:{ldsp:70000,mdf:95000,paint:125000},facName:{ldsp:"ЛДСП",mdf:"МДФ в плёнке",paint:"МДФ в краске"},wall:35000,light:12000},
   assembly:0.07
@@ -29,17 +29,14 @@ function calc(){
     var body=len*k.fac[f]*k.h[h];L.push(["Модули, "+k.facName[f]+", "+k.hName[h],body]);
     L.push(["Столешница, "+k.topName[tp],len*k.top[tp]]);
     if(k.layout[lay])L.push(["Форма: "+k.layoutName[lay],k.layout[lay]]);
-    if(rad("k_hw")==="prem")L.push(["Фурнитура Blum / Hettich",len*k.hwPrem]);
     if(chk("k_apron"))L.push(["Стеновая панель",len*k.apron]);
-    if(chk("k_light"))L.push(["LED-подсветка",len*k.light]);
     if(chk("k_tech"))L.push(["Установка техники",k.tech]);
     name="Кухня "+k.layoutName[lay]+" "+m(len,1)+", "+k.facName[f];}
-  else if(tab==="wardrobe"){var w=P.wardrobe,W=num("w_w"),H=num("w_h"),ty=rad("w_type"),fc=rad("w_fac"),fl=rad("w_fill"),a=W*H;
-    L.push([w.typeName[ty]+", "+a.toFixed(1).replace(".",",")+" м²",a*w.type[ty]]);
-    if(w.fac[fc])L.push(["Фасады: "+w.facName[fc],a*w.fac[fc]]);
-    if(w.fill[fl])L.push(["Расширенное наполнение",W*w.fill[fl]]);
-    if(chk("w_light"))L.push(["LED-подсветка",W*w.light]);
-    name=w.typeName[ty]+" "+m(W,1)+" × "+m(H,2)+", "+w.facName[fc];}
+  else if(tab==="wardrobe"){var w=P.wardrobe,W=num("w_w"),H=num("w_h"),ty=rad("w_type"),fc=rad("w_fac"),a=W*H,as=a.toFixed(2).replace(".",",")+" м²";
+    $("w_fac_row").hidden=ty==="walkin";
+    if(ty==="walkin"){L.push(["Гардеробная, "+as,a*w.walkin]);name="Гардеробная "+m(W,1)+" × "+m(H,2);}
+    else{L.push(["Шкаф, фасады "+w.facName[fc]+", "+as,a*w.rate[fc]]);name="Шкаф "+m(W,1)+" × "+m(H,2)+", "+w.facName[fc];}
+    if(chk("w_light"))L.push(["LED-подсветка",W*w.light]);}
   else if(tab==="hall"){var hl=P.hall,HW=num("h_w"),HH=num("h_h"),ht=rad("h_type");
     // цена за погонный метр рассчитана на высоту 2,4 м и меняется пропорционально высоте
     L.push([(ht==="open"?"Открытая прихожая":"Прихожая со шкафом")+", "+m(HH,2)+" в высоту",HW*hl.type[ht]*HH/2.4]);
