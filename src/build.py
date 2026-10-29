@@ -317,7 +317,7 @@ def header(current=""):
     return f'''<header class="top" id="top-bar"><div class="wrap">
 {lockup("", "./")}
 <nav class="nav" aria-label="Разделы">{links}</nav>
-<div class="top-cta"><a class="plain" href="{WA}" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-ink" href="kalkulyator.html">Рассчитать</a>
+<div class="top-cta"><a class="plain" href="{WA}" target="_blank" rel="noopener">WhatsApp</a><a class="btn btn-ink" href="kalkulyator.html">Калькулятор цены</a>
 <details class="menu"><summary aria-label="Меню"><span></span><span></span></summary><nav class="menu-list" aria-label="Меню">{links}<a href="kalkulyator.html">Калькулятор</a></nav></details></div>
 </div></header>'''
 
@@ -416,7 +416,7 @@ def sec_pillars():
 def sec_calc(mark="", standalone=False):
     m = f'<span class="mark">{mark}</span>' if mark else ""
     intro = ('''<div class="calc-intro"><span class="slash">// Как это работает</span>
-<ol class="calc-steps"><li><b>Выберите</b> тип мебели, форму и фасады.</li><li><b>Добавьте</b> позиции в смету — посчитаем всю квартиру.</li><li><b>Отправьте</b> смету в WhatsApp — уточним детали и назначим замер.</li></ol></div>''' if standalone else
+<ol class="calc-steps"><li><span><b>Выберите</b> тип мебели, форму и фасады.</span></li><li><span><b>Добавьте</b> позиции в смету — посчитаем всю квартиру.</span></li><li><span><b>Отправьте</b> смету в WhatsApp — уточним детали и назначим замер.</span></li></ol></div>''' if standalone else
              f'''<div class="calc-intro">{m}<span class="slash">// Цена за 30 секунд</span><h2>Посчитайте свою мебель</h2>
 <p class="lead">Выберите форму, размеры и фасады. Добавьте несколько позиций в смету и отправьте её нам в WhatsApp.</p></div>''')
     pad = ' style="padding-top:0"' if standalone else ""

@@ -404,3 +404,14 @@ td:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:5
 .mat-body ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:8px}
 .mat-body li::before{content:"— ";color:var(--gold-ink)}
 @media (max-width:760px){.mats{grid-template-columns:1fr}}
+/* Фасады в калькуляторе: фото материала */
+.qc .seg-mat{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.qc .seg-mat label{flex-direction:column;align-items:stretch;gap:2px;padding:6px 6px 10px;border-radius:16px;white-space:normal;line-height:1.2;min-width:0}
+.qc .seg-mat img{display:block;width:100%;height:auto;aspect-ratio:4/3;object-fit:cover;border-radius:11px;margin-bottom:6px}
+.qc .seg-mat b{font-weight:500;font-size:.92rem;padding:0 4px}
+.qc .seg-mat small{font-size:.76rem;color:var(--ink-3,#777);padding:0 4px}
+.qc .seg-mat input:checked+label small{color:rgba(255,255,255,.65)}
+.qc .seg-mat input:checked+label img{box-shadow:0 0 0 2px var(--gold)}
+@media (max-width:480px){.qc .seg-mat{gap:5px}.qc .seg-mat label{padding:4px 4px 8px}.qc .seg-mat b{font-size:.8rem;padding:0 2px}.qc .seg-mat small{font-size:.68rem;padding:0 2px}}
+/* Шаги «Как это работает» */
+.calc-steps li>span{display:block}
