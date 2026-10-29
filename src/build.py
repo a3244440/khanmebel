@@ -242,6 +242,23 @@ def spec_html():
 <div class="plans two">{card("Кухня", "Базовая комплектация", SPEC_K)}{card("Шкаф", "Базовая комплектация", SPEC_W)}</div>
 </div></section>'''
 
+
+MATS = [
+    ("mat-mdf", "МДФ", "Фасады и видимые части",
+     "Плотная однородная плита из мелкой древесной фибры. Хорошо держит фрезеровку и покраску, торец ровный и не крошится.",
+     ["Фасады кухонь и шкафов", "В плёнке или в краске — любой цвет", "Фрезеровка: рамка, арки, рифление"]),
+    ("mat-ldsp", "ЛДСП", "Корпуса и столешницы",
+     "Древесно-стружечная плита с прочным ламинированным покрытием. Крепко держит крепёж и не боится ежедневной нагрузки.",
+     ["Корпуса — ЛДСП Томск или Ламарти", "Столешницы — ЛДСП Скиф или Кедр", "Декоры под дерево, камень и однотонные"]),
+]
+def mat_html(pad=' style="padding-top:0"'):
+    cards = "".join(f'''<article class="mat-card"><img src="assets/media/{img}.jpg" alt="{name} — срез плиты, материал для мебели Khan Mebel" loading="lazy" width="869" height="1010">
+<div class="mat-body"><span class="mat-tag">{role}</span><h3>{name}</h3><p>{text}</p><ul>{"".join(f"<li>{x}</li>" for x in items)}</ul></div></article>''' for img, name, role, text, items in MATS)
+    return f'''<section id="materials"{pad}><div class="wrap">
+<div class="sec-title"><span class="slash">// Материалы</span><h2>МДФ и ЛДСП</h2><p class="lead">Из чего сделана ваша мебель и почему мы сочетаем два материала.</p></div>
+<div class="mats">{cards}</div>
+</div></section>'''
+
 PLANS = [
     ("", "Кухня", "180 000 ₸", "за погонный метр", ["Корпус ЛДСП Томск / Ламарти, фасады МДФ", "Фурнитура GTV (Польша) с доводчиками", "Подсветка, термопланки, поддон", "Замер, 3D-проект, доставка и сборка"], "btn-ink", "Рассчитать кухню", "#calc"),
     ("featured", "Под ключ", "980 000 ₸", "за однокомнатную", ["Кухня, шкаф, прихожая", "Один проект и один договор", "Единый стиль всех комнат", "Руководитель ведёт объект"], "btn-gold", "Обсудить проект", WA),
@@ -461,7 +478,7 @@ WEBSITE = {"@context": "https://schema.org", "@type": "WebSite", "name": "Khan M
 doc("", "Кухни и мебель на заказ в Астане — Khan Mebel",
     "Кухни, шкафы, гардеробные и мебель под ключ в Астане. Калькулятор стоимости онлайн, замер и 3D-проект за одну встречу, изготовление от 10 дней. Рейтинг 5.0 в 2ГИС.",
     sec_hero() + sec_video() + STAGE + sec_projects() + sec_pillars() + float_html() + sec_calc() +
-    sec_reviews() + sec_prices() + spec_html() + sec_lead() + sec_faq(FAQ_HOME) + sec_contacts(),
+    sec_reviews() + sec_prices() + spec_html() + mat_html() + sec_lead() + sec_faq(FAQ_HOME) + sec_contacts(),
     (faq_schema(FAQ_HOME), WEBSITE), calc=True)
 
 # Калькулятор
@@ -498,7 +515,7 @@ PRICE_TABLE = table(["Изделие", "Как считаем", "Цена"], [
 doc("ceny.html", "Мебель на заказ Астана — цены 2026 | Khan Mebel",
     "Мебель на заказ в Астане: цены 2026. Кухни от 180 000 ₸ за погонный метр, шкафы от 60 000 ₸ за м², корпусная мебель под ключ от 980 000 ₸. Недорого, от производителя.",
     page_head("Мебель на заказ в Астане: цены", "Ориентиры для бюджета. Точную стоимость считаем на замере и фиксируем в договоре.", "Цены")
-    + sec_prices(mark="", pad="") + spec_html() + f'<section style="padding-top:0"><div class="wrap prose"><h2>Прайс-лист</h2>{PRICE_TABLE}<p>Цены ориентировочные. В них входят корпус, фасады, стандартная фурнитура с доводчиками, доставка и сборка. Посчитать свой вариант можно <a href="kalkulyator.html">в калькуляторе</a>.</p></div></section>'
+    + sec_prices(mark="", pad="") + spec_html() + mat_html() + f'<section style="padding-top:0"><div class="wrap prose"><h2>Прайс-лист</h2>{PRICE_TABLE}<p>Цены ориентировочные. В них входят корпус, фасады, стандартная фурнитура с доводчиками, доставка и сборка. Посчитать свой вариант можно <a href="kalkulyator.html">в калькуляторе</a>.</p></div></section>'
     + sec_faq(FAQ_CALC) + sec_lead(),
     (faq_schema(FAQ_CALC), crumbs_schema("Цены", "ceny.html")))
 
@@ -516,7 +533,7 @@ def page(path, title, desc, h1, crumb, intro, body, faqs, extra_ld=()):
         f'''<section style="padding-top:56px"><div class="wrap prose">
 {body}
 </div></section>
-<section class="band-light"><div class="wrap prose">
+''' + (mat_html() if path in ("kuhni-na-zakaz-astana.html", "mebel-na-zakaz-astana.html") else "") + f'''<section class="band-light"><div class="wrap prose">
 <h2 style="margin-top:0">Частые вопросы</h2>
 {faq_html(faqs)}
 <h2>Смотрите также</h2>

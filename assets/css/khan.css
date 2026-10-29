@@ -391,3 +391,16 @@ td:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:5
 .qc .seg-ico{grid-template-columns:repeat(4,minmax(0,1fr))}
 .qc .seg-ico label{min-width:0;overflow-wrap:anywhere}
 @media (max-width:480px){.qc .seg-ico{gap:5px}.qc .seg-ico label{font-size:.72rem;padding:10px 2px;gap:4px}.qc .seg-ico svg{width:26px;height:16px}}
+
+/* МДФ и ЛДСП */
+.mats{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.mat-card{background:var(--paper);border-radius:24px;overflow:hidden;display:grid;grid-template-rows:auto 1fr}
+.mat-card img{width:100%;aspect-ratio:4/3;max-width:100%;height:auto;object-fit:cover;transition:transform 1s var(--ease)}
+.mat-card:hover img{transform:scale(1.03)}
+.mat-body{display:grid;gap:12px;align-content:start;padding:clamp(22px,2.6vw,34px)}
+.mat-tag{font-size:.9rem;color:var(--gold-ink)}
+.mat-body h3{font-size:clamp(2.2rem,1.6rem + 1.6vw,3.2rem);letter-spacing:-.045em;line-height:1}
+.mat-body p{color:var(--ink-2)}
+.mat-body ul{margin:4px 0 0;padding:0;list-style:none;display:grid;gap:8px}
+.mat-body li::before{content:"— ";color:var(--gold-ink)}
+@media (max-width:760px){.mats{grid-template-columns:1fr}}

@@ -4,7 +4,7 @@ var P={
   kitchen:{fac:{ldsp:180000,mdf:250000,paint:300000},
     facName:{ldsp:"ЛДСП",mdf:"МДФ в плёнке",paint:"МДФ в краске"},
     h:{"720":1,"920":1.12,ceil:1.3},hName:{"720":"верх 720","920":"верх 920",ceil:"до потолка"},
-    top:{ldsp:28000,compact:85000,stone:170000},topName:{ldsp:"ЛДСП Скиф / Кедр",compact:"компакт-плита",stone:"искусств. камень"},
+    top:{ldsp:28000,stone:170000},topName:{ldsp:"ЛДСП Скиф / Кедр",stone:"искусств. камень"},
     hwPrem:38000,layout:{straight:0,corner:45000,u:90000,island:180000},
     layoutName:{straight:"прямая",corner:"угловая",u:"П-образная",island:"с островом"},
     apron:18000,light:12000,tech:25000},
