@@ -8,7 +8,7 @@ var P={
     hwPrem:38000,layout:{straight:0,corner:45000,u:90000,island:180000},
     layoutName:{straight:"прямая",corner:"угловая",u:"П-образная",island:"с островом"},
     apron:18000,light:12000,tech:25000},
-  wardrobe:{type:{coupe:62000,swing:55000,walkin:48000},typeName:{coupe:"Шкаф-купе",swing:"Распашной шкаф",walkin:"Гардеробная"},
+  wardrobe:{type:{swing:55000,walkin:48000},typeName:{swing:"Распашной шкаф",walkin:"Гардеробная"},
     fac:{ldsp:0,mirror:14000,mdf:22000,paint:38000},facName:{ldsp:"ЛДСП",mirror:"зеркало",mdf:"МДФ в плёнке",paint:"МДФ в краске"},
     fill:{base:0,plus:30000,max:60000},light:15000},
   hall:{type:{open:85000,closed:110000},mirror:25000,seat:30000},
@@ -40,11 +40,12 @@ function calc(){
     if(w.fill[fl])L.push(["Расширенное наполнение",W*w.fill[fl]]);
     if(chk("w_light"))L.push(["LED-подсветка",W*w.light]);
     name=w.typeName[ty]+" "+m(W,1)+" × "+m(H,2)+", "+w.facName[fc];}
-  else if(tab==="hall"){var hl=P.hall,HW=num("h_w"),ht=rad("h_type");
-    L.push([(ht==="open"?"Открытая прихожая":"Прихожая со шкафом"),HW*hl.type[ht]]);
+  else if(tab==="hall"){var hl=P.hall,HW=num("h_w"),HH=num("h_h"),ht=rad("h_type");
+    // цена за погонный метр рассчитана на высоту 2,4 м и меняется пропорционально высоте
+    L.push([(ht==="open"?"Открытая прихожая":"Прихожая со шкафом")+", "+m(HH,2)+" в высоту",HW*hl.type[ht]*HH/2.4]);
     if(chk("h_mirror"))L.push(["Зеркало",hl.mirror]);
     if(chk("h_seat"))L.push(["Сиденье",hl.seat]);
-    name="Прихожая "+m(HW,1);}
+    name="Прихожая "+m(HW,1)+" × "+m(HH,2);}
   else{var tv=P.tv,TW=num("tv_w"),tf=rad("tv_fac");
     L.push(["Тумба, "+tv.facName[tf],TW*tv.fac[tf]]);
     if(chk("tv_wall"))L.push(["Панель и полки",TW*tv.wall]);
@@ -76,7 +77,7 @@ function render(){
   $("est-sum").textContent=fmt(est.reduce(function(a,x){return a+x.total},0));
   $("send").href=waLink(r);
   ["k_len","w_w","h_w","tv_w"].forEach(function(id){$(id+"_v").textContent=m(num(id),1)});
-  $("w_h_v").textContent=m(num("w_h"),2);
+  $("w_h_v").textContent=m(num("w_h"),2);$("h_h_v").textContent=m(num("h_h"),2);
   hero();
 }
 document.querySelectorAll(".tab").forEach(function(b){b.addEventListener("click",function(){

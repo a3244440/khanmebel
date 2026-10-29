@@ -12,7 +12,7 @@
 | `kalkulyator.html` | `/kalkulyator.html` | Калькулятор стоимости кухни, шкафа, прихожей, ТВ-зоны + смета в WhatsApp |
 | `proekty.html` | `/proekty.html` | Портфолио: фото с фильтром по комнатам и видео-обзоры |
 | `kuhni-na-zakaz-astana.html` | SEO | Кухни на заказ: цены за погонный метр, материалы, FAQ |
-| `mebel-na-zakaz-astana.html` | SEO | Шкафы-купе, гардеробные, прихожие, детские |
+| `mebel-na-zakaz-astana.html` | SEO | Шкафы, гардеробные, прихожие, детские |
 | `mebel-pod-klyuch-astana.html` | SEO | Мебель под ключ: бюджеты для 1-, 2-, 3-комнатных квартир |
 | `ceny.html` | `/ceny.html` | Цены и прайс-лист |
 | `otzyvy.html` | `/otzyvy.html` | Отзывы клиентов из 2ГИС |
