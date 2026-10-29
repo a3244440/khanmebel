@@ -86,6 +86,7 @@ def meta(title, desc, path):
 <meta property="og:title" content="{title}"><meta property="og:description" content="{desc}">
 <meta property="og:url" content="{url}"><meta property="og:image" content="{DOMAIN}/assets/img/logo.jpg">
 <meta name="google-site-verification" content="k0fBn6_nPx2JKuDDlRyQbcTxZKTbWe0KUqQUcY7fEe4">
+<meta name="yandex-verification" content="66470a072bd67517">
 <meta name="geo.region" content="KZ-AST"><meta name="geo.placename" content="Астана">
 <meta name="geo.position" content="51.183004;71.435401"><meta name="ICBM" content="51.183004, 71.435401">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
