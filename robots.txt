@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://khanmebel.vercel.app/sitemap.xml
+Sitemap: https://khanmebel.kz/sitemap.xml

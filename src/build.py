@@ -13,7 +13,7 @@ TODAY = datetime.date.today().isoformat()
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 OUT = ROOT
 # Адрес сайта для canonical, sitemap и разметки. После подключения своего домена поменяйте здесь.
-DOMAIN = "https://khanmebel.vercel.app"
+DOMAIN = "https://khanmebel.kz"
 
 WA_NUM = "77001116291"
 PHONE_H = "+7 700 111 62 91"
