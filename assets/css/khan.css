@@ -415,3 +415,7 @@ td:last-child{font-variant-numeric:tabular-nums;white-space:nowrap;font-weight:5
 @media (max-width:480px){.qc .seg-mat{gap:5px}.qc .seg-mat label{padding:4px 4px 8px}.qc .seg-mat b{font-size:.8rem;padding:0 2px}.qc .seg-mat small{font-size:.68rem;padding:0 2px}}
 /* Шаги «Как это работает» */
 .calc-steps li>span{display:block}
+
+/* Блок «Коротко»: прямой ответ в начале SEO-страниц */
+.answer{max-width:800px;border-left:3px solid #b98d2c;background:var(--paper);border-radius:0 20px 20px 0;padding:clamp(20px,2.5vw,32px);display:grid;gap:10px}
+.answer p{margin:0;font-size:1.1rem;line-height:1.55;color:var(--ink)}
